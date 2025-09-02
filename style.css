@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Cactus+Classical+Serif&family=Gelasio:ital,wght@0,400..700;1,400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Noto+Sans+Georgian:wght@100..900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root {
+  --main-background-color: rgb(101, 146, 245);
+  --contrast-background-color: white;
+  --containerContent-background-color: rgba(224, 221, 221, 0.926);
+  --startGame-color: rgba(97, 192, 13, 0.932);
+  --startGame-active-color: rgba(59, 118, 7, 0.932);
+
+  --font-color: rgba(0, 0, 0, 0.81);
+  --font-family: "Cactus Classical Serif", serif;
+
+  --title-size: 50px;
+  --font-size: 15px;
+
+  --button-color: rgb(255, 255, 255);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-family);
+  color: var(--font-color);
+  background-color: var(--main-background-color);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 650px;
+  min-height: 500px;
+  max-height: 70%;
+  padding: 10px;
+  background-color: var(--contrast-background-color);
+  border-radius: 16px;
+}
+
+h1 {
+  font-size: var(--title-size);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  margin: 0 0 12px 0;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 650px;
+  height: 50px;
+  background-color: transparent;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  padding-bottom: 10px;
+}
+
+.containerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem 0;
+  width: 100%;
+  max-width: 650px;
+  min-height: 200px;
+  background-color: var(--containerContent-background-color);
+  margin-bottom: 2rem;
+  gap: 15px;
+}
+
+.startButton {
+  padding: 2% 5%;
+  border-radius: 20px;
+  border: 1px solid var(--main-background-color);
+  background-color: var(--contrast-background-color);
+  font-family: var(--font-family);
+  font-size: 50px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.startButton:hover { background-color: var(--startGame-color); }
+.startButton:disabled { opacity: .6; cursor: not-allowed; }
+
+form {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  box-shadow: none;
+  text-align: center;
+}
+
+select {
+  width: 20rem;
+  height: 2rem;
+  border: 1px solid var(--main-background-color);
+  text-align: center;
+  font-weight: bold;
+  outline: none;
+  background: var(--contrast-background-color);
+  font-family: var(--font-family);
+}
+
+select option { background-color: var(--contrast-background-color); }
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 150px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  margin-bottom: 1rem;
+}
+
+.keyboardButton {
+  border: 1px solid var(--main-background-color);
+  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  font-weight: 700;
+    font-family: var(--font-family);
+  background: #fff;
+}
+
+.keyboardButton:hover { background-color: rgb(146, 181, 228); }
+.keyboardButton:disabled { 
+  opacity: 1; 
+  color: black;
+  border: 1px solid #7c7c7c;
+}
+
+.keyboardButton.active {
+  background-color: rgba(218, 99, 190, 0.959);
+  transform: scale(1.08);
+}
+
+.roundSection, .levelSection, .repeatSequenceButton, .newGameButton, .nextButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-weight: 600;
+}
+
+.repeatSequenceButton, .nextButton {
+  background-color: rgba(145, 187, 255, 0.886);
+  border: transparent;
+  border-radius: 16px;
+  padding: 6px 10px;
+}
+
+.newGameButton {
+  background-color: rgb(121, 218, 56);
+  border: transparent;
+  border-radius: 16px;
+  padding: 6px 10px;
+}
+
+.repeatSequenceButton:hover,
+.nextButton:hover { background-color: rgba(8, 8, 56, 0.619); color: #fff; }
+
+.newGameButton:hover { background-color: rgba(10, 47, 8, 0.779); color: #fff; }
+
+.repeatSequenceButton:disabled,
+.nextButton:disabled,
+.newGameButton:disabled { opacity: .6; cursor: not-allowed; }
+
+.inputArea {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  min-height: 60px;
+  border: 1px solid rgba(123, 112, 112, 0.49);
+  border-radius: 10px;
+  gap: 5px;
+  opacity: 0;
+  background-color: white;
+  padding: 8px;
+}
+
+.userInput {
+  border: none;
+  border-bottom: 1px solid gray;
+  width: 60%;
+  min-height: 36px;
+  outline: none;
+  text-align: center;
+  pointer-events: none;
+}
+
+.messageLine {
+  width: 90%;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.778);
+  text-align: center;
+  opacity: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+@media (min-width: 1440px) {
+  .container { width: 100%; height: 80%; }
+}
+
+@media (min-width: 768px) and (max-width: 1439.98px) {
+  .container { min-width: 90%; height: 90%; }
+  .containerContent, .navigation { min-width: 100%; }
+  .keyboard { min-width: 90%; }
+}
+
+@media (min-width: 360px) and (max-width: 767.98px) {
+  .keyboardButton {
+    width: 44px;
+    height: 44px;
+  }
+}
