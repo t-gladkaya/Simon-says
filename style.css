@@ -41,7 +41,7 @@ body {
   width: 100%;
   max-width: 650px;
   min-height: 500px;
-  max-height: 70%;
+  max-height: 100%;
   padding: 10px;
   background-color: var(--contrast-background-color);
   border-radius: 16px;
@@ -104,8 +104,8 @@ form {
 }
 
 select {
-  width: 20rem;
-  height: 2rem;
+  min-width: 300px;
+  min-height: 30px;
   border: 1px solid var(--main-background-color);
   text-align: center;
   font-weight: bold;
@@ -123,7 +123,7 @@ select option { background-color: var(--contrast-background-color); }
   align-items: center;
   gap: 8px;
   width: 100%;
-  min-height: 150px;
+  min-height: 200px;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   margin-bottom: 1rem;
@@ -135,7 +135,7 @@ select option { background-color: var(--contrast-background-color); }
   width: 44px;
   height: 44px;
   font-weight: 700;
-    font-family: var(--font-family);
+  font-family: var(--font-family);
   background: #fff;
 }
 
@@ -207,6 +207,7 @@ select option { background-color: var(--contrast-background-color); }
   outline: none;
   text-align: center;
   pointer-events: none;
+  font-family: var(--font-family);
 }
 
 .messageLine {
@@ -222,18 +223,33 @@ select option { background-color: var(--contrast-background-color); }
 }
 
 @media (min-width: 1440px) {
-  .container { width: 100%; height: 80%; }
+  .container { width: 100%; height: 80%;}
 }
 
 @media (min-width: 768px) and (max-width: 1439.98px) {
-  .container { min-width: 90%; height: 90%; }
-  .containerContent, .navigation { min-width: 100%; }
-  .keyboard { min-width: 90%; }
+  select { min-height: 50px; width: 100%; font-size: 30px; }
+
+  .container { min-width: 90%; height: 90%; font-size: 20px;}
+  .containerContent { height: 40%; min-width: 100%; justify-content: center;}
+  
+  form {height: 100%;}
+  .startButton, form { width: 50%; height: 50%; }
+
+  form {height: 5rem;}
+  .navigation {  height: 10%; min-width: 100%; }
+  .keyboard { min-width: 90%; height: 35%; gap: 15px; display: flex; flex-wrap: wrap;}
+  .keyboardButton {font-size: 20px; height: 90px; width: 90px;}
+  .repeatSequenceButton, .nextButton, .newGameButton, .roundSection, .levelSection { font-size: 25px; }
+
+  .inputArea { min-height: 50%;}
+  .userInput  { font-size: 40px;}
+  .messageLine { min-height: 30%; font-size: 30px;}
+
 }
 
 @media (min-width: 360px) and (max-width: 767.98px) {
   .keyboardButton {
-    width: 44px;
-    height: 44px;
+    width: 150px;
+    height: px;
   }
 }
